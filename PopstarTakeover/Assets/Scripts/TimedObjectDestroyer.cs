@@ -8,7 +8,7 @@ using UnityEngine;
 public class TimedObjectDestroyer : MonoBehaviour
 {
     [Tooltip("The lifetime of this gameobject")]
-    public float lifetime = 5.0f;
+    public float lifetime = 3.0f;
 
     // The amount of time this gameobject has already existed in play mode
     private float timeAlive = 0.0f;
@@ -77,5 +77,10 @@ public class TimedObjectDestroyer : MonoBehaviour
             }
         }
         transform.DetachChildren();
+    }
+
+    public void changeLifetime(float time)
+    {
+        lifetime = time;
     }
 }
