@@ -15,6 +15,8 @@ public class shockwave_spawner : MonoBehaviour
     [Tooltip("Smaller value = faster spawn")]
     public float spawnRate = 0.05f;
     private float lastSpawned = Mathf.NegativeInfinity;
+    public float maxLevel;
+    public float minLevel = -100;
     //public float scale = 1;
   
     [Tooltip("Default = 0,0,0; To flatten: from y=0 to y=-0.9")]
@@ -37,10 +39,10 @@ public class shockwave_spawner : MonoBehaviour
     {
         
         //bool spawnOrNot = micListener.Spawn();
-       // if (ml.Spawn())
-        //{
+       if (SpawnOrNot())
+       {
             Spawn();
-       // }
+       }
         
     }
 
@@ -59,14 +61,41 @@ public class shockwave_spawner : MonoBehaviour
     {
         if (objectPrefab != null)
         {
+            
+                GameObject waveholder = new GameObject();
+                waveholder.AddComponent<TimedObjectDestroyer>();
 
-            GameObject waveholder = new GameObject();
-            waveholder.AddComponent<TimedObjectDestroyer>();
-           
             //TODO: Get microphone input through MicListener script and adjust y accordingly (from 0 to -0.9)
+            Vector3 temp = transform.position;
+            float t = micVolume();
+            temp.y += t;
+            // waveholder.transform.localScale = temp;
+           // Debug.Log("getVolume: "+ getVolume());
+                //sizeChange.y += 1.0f;
+              //  waveholder.transform.localScale = waveholder.transform.localScale + (1 * sizeChange);
             waveholder.transform.localScale = waveholder.transform.localScale + (1 * sizeChange);
             GameObject newGameObject = Instantiate(objectPrefab, transform.position, transform.rotation, waveholder.transform);
-
         }
+    }
+
+    private float getVolume()
+    {
+        //Debug.Log("volume: " + MicInput.MicLoudnessinDecibels);
+        Debug.Log("max: " + MicInput.MicMaxLoudnessinDecibels);
+        return (MicInput.MicLoudnessinDecibels / MicInput.MicMaxLoudnessinDecibels);
+    }
+
+    private bool SpawnOrNot()
+    {
+        if (MicInput.MicLoudnessinDecibels > -60)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private float micVolume()
+    {
+        return (MicInput.MicLoudnessinDecibels / -100);
     }
 }
