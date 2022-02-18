@@ -354,6 +354,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1583300735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6703995992415700052, guid: 19af0418e8913844c85e7401f69055f2, type: 3}
+  m_PrefabInstance: {fileID: 5572943657175937477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1583300736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583300735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dc1d8779c6e75647b1f2c8c30b600c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1886755785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7574890438161251003, guid: 12b8338673392314e89a600796376295, type: 3}
@@ -523,7 +540,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicrophoneListener
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6662959386338664380, guid: 19af0418e8913844c85e7401f69055f2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19af0418e8913844c85e7401f69055f2, type: 3}
 --- !u!1001 &7574890436862948199
 PrefabInstance:
