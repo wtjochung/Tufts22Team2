@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6392864561089372737}
   - component: {fileID: 6392864560886255850}
   m_Layer: 0
-  m_Name: Paparazzi 1
+  m_Name: Paparazzi
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fac3e2b16104e40862cd4f80493ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 8604048037492149576, guid: df284819d8bbf95408486097de259cdc, type: 3}
 --- !u!114 &6392864560886255850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,3 +151,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   destroyDistance: 50
+  goLeft: 1

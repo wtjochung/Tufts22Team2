@@ -5,6 +5,7 @@ using UnityEngine;
 public class SoundwaveCollision : MonoBehaviour
 {
     private bool gotHit = false;
+    public GameObject hitEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,12 @@ public class SoundwaveCollision : MonoBehaviour
                 NPCMovement m = gameObject.GetComponent<NPCMovement>();
                 m.changeDirection();
                 gotHit = true;
+
+                if (hitEffect != null)
+                {
+                    Instantiate(hitEffect, transform.position, transform.rotation, null);
+                }
+
                 //Destroy(gameObject);
                 //Debug.Log("soundwave collision");
             }

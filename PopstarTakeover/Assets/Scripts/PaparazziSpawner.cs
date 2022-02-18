@@ -13,6 +13,7 @@ public class PaparazziSpawner : MonoBehaviour
 
     public GameObject objectPrefab = null;
     [Tooltip("Smaller value = faster spawn")]
+    public float spawnChance = 0.5f;
     public float spawnRate = 0.05f;
     private float lastSpawned = Mathf.NegativeInfinity;
  
@@ -25,17 +26,24 @@ public class PaparazziSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            Spawn();
+        
+        
+           Spawn();
+        
     }
 
     public void Spawn()
     {
         if ((Time.timeSinceLevelLoad - lastSpawned) > spawnRate)
         {
-            SpawnObject();
-            lastSpawned = Time.timeSinceLevelLoad;
+           // int random = Random.Range(0, 10);
+           // Debug.Log(random);
+           // if (random > 5)
+            //{
+                SpawnObject();
+                lastSpawned = Time.timeSinceLevelLoad;
+          //  }
         }
-
 
     }
 
@@ -54,5 +62,9 @@ public class PaparazziSpawner : MonoBehaviour
         }
     }
 
+    public void changeSpawnRate(float newRate)
+    {
+        spawnRate = newRate;
+    }
 
 }
