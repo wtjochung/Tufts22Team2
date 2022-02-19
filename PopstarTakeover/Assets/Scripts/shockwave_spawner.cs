@@ -12,12 +12,19 @@ public class shockwave_spawner : MonoBehaviour
 {
 
     public GameObject objectPrefab = null;
+
     [Tooltip("Smaller value = faster spawn")]
     public float spawnRate = 0.05f;
+
     private float lastSpawned = Mathf.NegativeInfinity;
-    public float maxLevel;
-    public float minLevel = -100;
+
+    //public float maxLevel;
+    //public float minLevel = -100;
     //public float scale = 1;
+
+    public bool micInput;
+    public bool keyboardInput;
+    private bool keydown = false;
   
     [Tooltip("Default = 0,0,0; To flatten: from y=0 to y=-0.9")]
     public Vector3 sizeChange;
@@ -37,12 +44,16 @@ public class shockwave_spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (keyboardInput)
+        {
+            if (Input.GetButtonDown("Jump")) keydown = true;
+            if (Input.GetButtonUp("Jump")) keydown = false;
+        }
         //bool spawnOrNot = micListener.Spawn();
-       if (SpawnOrNot())
-       {
+        if (SpawnOrNot())
+         {
             Spawn();
-       }
+          }
         
     }
 
@@ -53,8 +64,6 @@ public class shockwave_spawner : MonoBehaviour
             SpawnObject();
             lastSpawned = Time.timeSinceLevelLoad;
         }
-
-        
     }
 
     public void SpawnObject()
@@ -75,6 +84,9 @@ public class shockwave_spawner : MonoBehaviour
               //  waveholder.transform.localScale = waveholder.transform.localScale + (1 * sizeChange);
             waveholder.transform.localScale = waveholder.transform.localScale + (1 * sizeChange);
             GameObject newGameObject = Instantiate(objectPrefab, transform.position, transform.rotation, waveholder.transform);
+        
+        
+        
         }
     }
 
@@ -87,7 +99,11 @@ public class shockwave_spawner : MonoBehaviour
 
     private bool SpawnOrNot()
     {
-        if (MicInput.MicLoudnessinDecibels > -60)
+        
+        if (micInput && MicInput.MicLoudnessinDecibels > -60)
+        {
+            return true;
+        } else if (keyboardInput && keydown)
         {
             return true;
         }

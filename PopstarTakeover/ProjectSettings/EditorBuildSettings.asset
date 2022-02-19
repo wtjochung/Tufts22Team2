@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 48f6700a5a279864b8fdde8429ab76f0
-  - enabled: 1
-    path: Assets/TestMicrophoneWebGL/TestMicrophoneWebGL.unity
-    guid: b9d44038d606273468d2a90cdc8a164e
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

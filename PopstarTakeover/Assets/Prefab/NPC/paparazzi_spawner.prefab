@@ -46,3 +46,5 @@ MonoBehaviour:
   objectPrefab: {fileID: 6392864561089372762, guid: 7bb9a3346af18744cb5633868d675992, type: 3}
   spawnChance: 0.5
   spawnRate: 1.5
+  spawnRangeX: 5
+  spawnRangeY: 4
