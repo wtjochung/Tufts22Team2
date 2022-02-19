@@ -15,6 +15,16 @@ public class PaparazziSpawner : MonoBehaviour
     [Tooltip("Smaller value = faster spawn")]
     public float spawnChance = 0.5f;
     public float spawnRate = 0.05f;
+
+    [Header("Spawn Position")]
+    [Tooltip("The distance within which enemies can spawn in the X direction")]
+    [Min(0)]
+    public float spawnRangeX = 10.0f;
+    [Tooltip("The distance within which enemies can spawn in the Y direction")]
+    [Min(0)]
+    public float spawnRangeY = 10.0f;
+
+
     private float lastSpawned = Mathf.NegativeInfinity;
  
     // Start is called before the first frame update
@@ -58,13 +68,22 @@ public class PaparazziSpawner : MonoBehaviour
 
             Quaternion q = objectPrefab.transform.rotation;
            // q = Quaternion.AngleAxis(90f, transform.forward) * q;
-            GameObject newGameObject = Instantiate(objectPrefab, transform.position, q, null);
+            GameObject newGameObject = Instantiate(objectPrefab, GetSpawnLocation(), q, null);
         }
     }
 
     public void changeSpawnRate(float newRate)
     {
         spawnRate = newRate;
+    }
+
+    protected virtual Vector3 GetSpawnLocation()
+    {
+        // Get random coordinates
+        float x = Random.Range(0 - spawnRangeX, spawnRangeX);
+        float y = Random.Range(0 - spawnRangeY, spawnRangeY);
+        // Return the coordinates as a vector
+        return new Vector3(transform.position.x + x, transform.position.y + y, 0);
     }
 
 }
