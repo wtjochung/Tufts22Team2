@@ -88,8 +88,6 @@ public class shockwave_spawner : MonoBehaviour
               //  waveholder.transform.localScale = waveholder.transform.localScale + (1 * sizeChange);
             waveholder.transform.localScale = waveholder.transform.localScale + (1 * sizeChange);
             GameObject newGameObject = Instantiate(objectPrefab, transform.position, transform.rotation, waveholder.transform);
-        
-        
 
     }
 }
