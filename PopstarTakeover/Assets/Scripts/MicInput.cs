@@ -9,6 +9,7 @@ public class MicInput : MonoBehaviour
     public static MicInput Inctance { set; get; }
 
     #endregion
+#if !UNITY_WEBGL
 
     public static float MicLoudness;
     public static float MicLoudnessinDecibels;
@@ -180,4 +181,5 @@ public class MicInput : MonoBehaviour
 
         }
     }
+#endif
 }

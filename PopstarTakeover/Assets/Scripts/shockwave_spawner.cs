@@ -25,6 +25,7 @@ public class shockwave_spawner : MonoBehaviour
     public bool micInput;
     public bool keyboardInput;
     private bool keydown = false;
+    private bool isWebGL = false;
   
     [Tooltip("Default = 0,0,0; To flatten: from y=0 to y=-0.9")]
     public Vector3 sizeChange;
@@ -39,6 +40,9 @@ public class shockwave_spawner : MonoBehaviour
     {
         //scaleGameObject = Instantiate(scaleObject, transform.position, transform.rotation, null);
         //ml = new micListener();TODO change to playerInput
+#if UNITY_WEBGL
+        isWebGL = true;
+#endif
     }
 
     // Update is called once per frame
@@ -70,14 +74,14 @@ public class shockwave_spawner : MonoBehaviour
     {
         if (objectPrefab != null)
         {
-            
-                GameObject waveholder = new GameObject();
+
+            GameObject waveholder = new GameObject();
                 waveholder.AddComponent<TimedObjectDestroyer>();
 
             //TODO: Get microphone input through MicListener script and adjust y accordingly (from 0 to -0.9)
-            Vector3 temp = transform.position;
-            float t = micVolume();
-            temp.y += t;
+           // Vector3 temp = transform.position;
+            //float t = micVolume();
+            //temp.y += t;
             // waveholder.transform.localScale = temp;
            // Debug.Log("getVolume: "+ getVolume());
                 //sizeChange.y += 1.0f;
@@ -86,20 +90,23 @@ public class shockwave_spawner : MonoBehaviour
             GameObject newGameObject = Instantiate(objectPrefab, transform.position, transform.rotation, waveholder.transform);
         
         
-        
-        }
-    }
 
+    }
+}
+
+
+    /*
     private float getVolume()
     {
         //Debug.Log("volume: " + MicInput.MicLoudnessinDecibels);
         Debug.Log("max: " + MicInput.MicMaxLoudnessinDecibels);
         return (MicInput.MicLoudnessinDecibels / MicInput.MicMaxLoudnessinDecibels);
     }
+    */
 
     private bool SpawnOrNot()
     {
-        
+#if !UNITY_WEBGL
         if (micInput && MicInput.MicLoudnessinDecibels > -60)
         {
             return true;
@@ -108,10 +115,26 @@ public class shockwave_spawner : MonoBehaviour
             return true;
         }
         return false;
+#endif
+#if UNITY_WEBGL
+        if (keyboardInput && keydown)
+        {
+            return true;
+        }
+        return false;
+#endif
+
+
     }
 
     private float micVolume()
     {
+#if !UNITY_WEBGL
         return (MicInput.MicLoudnessinDecibels / -100);
+#endif
+
+#if UNITY_WEBGL
+        return (8f);
+#endif
     }
 }
