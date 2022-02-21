@@ -52,9 +52,7 @@ public class shockwave_spawner : MonoBehaviour
     {
         
 
-#if UNITY_WEBGL
-        isWebGL = true;
-#endif
+
     }
 
     // Update is called once per frame

@@ -50,6 +50,14 @@ public class SoundwaveCollision : MonoBehaviour
                     Instantiate(hitEffect, transform.position, transform.rotation, null);
                 }
 
+                if (name.Contains("Fan"))
+                {
+                    GameHandler.fanLost++;
+                }
+                else if (name.Contains("Paparazzi"))
+                {
+                    GameHandler.paparazziLost++;
+                }
 
                 //Destroy(gameObject);
                 //Debug.Log("soundwave collision");

@@ -15,9 +15,14 @@ public class GameHandler : MonoBehaviour
     public int StartPlayerHealth = 100;
     public GameObject healthText;
 
-    public int seatsAvailable = 10;
+    public int seatsAvailable;
+    private int currSeats;
+    public GameObject seatsText;
     public static int fanSaved;
     public static int paparazziSaved;
+
+    public static int fanLost;
+    public static int paparazziLost;
     
 
     public static int gotScore = 0;
@@ -39,7 +44,9 @@ public class GameHandler : MonoBehaviour
         updateStatsDisplay();
         fanSaved = 0;
         paparazziSaved = 0;
-    }
+        fanLost = 0;
+        paparazziLost = 0;
+}
 
     
 
@@ -51,10 +58,9 @@ public class GameHandler : MonoBehaviour
         Text scoreTextTemp = scoreText.GetComponent<Text>();
         scoreTextTemp.text = "Score: " + gotScore;
 
-        if ((fanSaved + paparazziSaved) >= seatsAvailable)
-        {
-            //TODO: level end screen
-        }
+        Text seatsTextTemp = seatsText.GetComponent<Text>();
+        seatsTextTemp.text = currSeats + " seats remaining";
+
     }
 
     public void playerGetScore(int scoreIncrease)
@@ -101,34 +107,36 @@ public class GameHandler : MonoBehaviour
         }
         updateStatsDisplay();
 
-      
-        if ((fanSaved + paparazziSaved) >= seatsAvailable)
+        currSeats = seatsAvailable - (fanSaved + paparazziSaved);
+        if (currSeats <= 0)
         {
             determineWinState();
-
         }
 
     }
 
     void determineWinState()
     {
-        Debug.Log("In determine win state");
+       
         
-        float fanratio = fanSaved / seatsAvailable;
-        Debug.Log("fanratio: " + fanratio);
-        if (fanratio > 0.8f)
+        float fanratio = (float)fanSaved / seatsAvailable;
+        float pratio = (float)paparazziSaved / seatsAvailable;
+        Debug.Log("fanratio" + fanratio);
+        Debug.Log("pratio" + pratio);
+
+        if (fanratio >= 0.75f)
         {
-            Debug.Log("fansaved: " + fanSaved);
             SceneManager.LoadScene("WinScreen");
-        } else if ((paparazziSaved / seatsAvailable) > 0.8f)
+        } else if (pratio >= 0.75f)
         {
-            Debug.Log("fansaved: " + fanSaved);
             SceneManager.LoadScene("LoseScreen");
-        } else 
+        } else if (fanLost >= 3)
         {
-            Debug.Log("fansaved: " + fanSaved);
             SceneManager.LoadScene("NormalScreen");
-        } 
+        } else
+        {
+            SceneManager.LoadScene("MediumScreen");
+        }
     }
 
     public void UpdatePlayerStat(int amount)
