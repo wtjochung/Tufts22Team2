@@ -5,8 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Soundwave
   - Friendly
+  - Attack
+  - Soundwave
+  - Scorezone
   layers:
   - Default
   - TransparentFX
@@ -52,4 +54,7 @@ TagManager:
     locked: 0
   - name: Effects
     uniqueID: 3560167191
+    locked: 0
+  - name: UI
+    uniqueID: 2945781111
     locked: 0

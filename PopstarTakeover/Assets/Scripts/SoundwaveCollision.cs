@@ -6,6 +6,9 @@ public class SoundwaveCollision : MonoBehaviour
 {
     private bool gotHit = false;
     public GameObject hitEffect;
+
+    public int scoreIncreaseWhenHit;
+    public int scoreIncreaseAtScorezone;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,7 @@ public class SoundwaveCollision : MonoBehaviour
                 //Destroy(gameObject);
                 Debug.Log("player collision");
             }
-            else if (collision.gameObject.tag == "Soundwave")
+            else if (collision.gameObject.tag == "Attack")
             {
                 //EnemyLives -= EnemyLives;
                 //rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
@@ -39,14 +42,30 @@ public class SoundwaveCollision : MonoBehaviour
                 NPCMovement m = gameObject.GetComponent<NPCMovement>();
                 m.changeDirection();
                 gotHit = true;
+                GameHandler.gotScore += scoreIncreaseWhenHit;
+
 
                 if (hitEffect != null)
                 {
                     Instantiate(hitEffect, transform.position, transform.rotation, null);
                 }
 
+
                 //Destroy(gameObject);
                 //Debug.Log("soundwave collision");
+            }
+            else if (collision.gameObject.tag == "Scorezone")
+            {
+                Debug.Log("in scorezone, name: " + name);
+                GameHandler.gotScore += scoreIncreaseAtScorezone;
+                if (name.Contains("Fan"))
+                {
+                    GameHandler.fanSaved++;
+                } else if (name.Contains("Paparazzi"))
+                {
+                    GameHandler.paparazziSaved++;
+                }
+                
             }
         }
     }

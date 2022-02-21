@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2158429467301593513}
   m_Layer: 0
   m_Name: edgeCollider
-  m_TagString: Soundwave
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: -6821806113570881627}
   m_Layer: 0
   m_Name: soundwave
-  m_TagString: Soundwave
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

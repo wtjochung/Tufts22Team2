@@ -136,7 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fac3e2b16104e40862cd4f80493ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 8604048037492149576, guid: df284819d8bbf95408486097de259cdc, type: 3}
+  hitEffect: {fileID: 7450977507162261919, guid: 6ca79fb22c785f7409d772ab7987055e, type: 3}
+  scoreIncreaseWhenHit: -1
+  scoreIncreaseAtScorezone: 5
 --- !u!114 &6392864560886255850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,5 +152,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  destroyDistance: 50
+  destroyDistance: 30
   goLeft: 1

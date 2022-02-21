@@ -16,6 +16,16 @@ public class shockwave_spawner : MonoBehaviour
     [Tooltip("Smaller value = faster spawn")]
     public float spawnRate = 0.05f;
 
+    //public float holdTime = 0.1f;
+    /*
+    public GameObject briefTap;
+    public GameObject shortHold;
+    public GameObject medHold;
+    public GameObject longHold;
+    public GameObject veryLongHold;
+    */
+    public GameObject[] projectileList;
+
     private float lastSpawned = Mathf.NegativeInfinity;
 
     //public float maxLevel;
@@ -25,7 +35,9 @@ public class shockwave_spawner : MonoBehaviour
     public bool micInput;
     public bool keyboardInput;
     private bool keydown = false;
-    private bool isWebGL = false;
+    private float keydownTime;
+    private float keyupTime;
+    //private bool isWebGL = false;
   
     [Tooltip("Default = 0,0,0; To flatten: from y=0 to y=-0.9")]
     public Vector3 sizeChange;
@@ -38,8 +50,8 @@ public class shockwave_spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //scaleGameObject = Instantiate(scaleObject, transform.position, transform.rotation, null);
-        //ml = new micListener();TODO change to playerInput
+        
+
 #if UNITY_WEBGL
         isWebGL = true;
 #endif
@@ -50,31 +62,76 @@ public class shockwave_spawner : MonoBehaviour
     {
         if (keyboardInput)
         {
-            if (Input.GetButtonDown("Jump")) keydown = true;
-            if (Input.GetButtonUp("Jump")) keydown = false;
+            if (Input.GetButtonDown("Jump"))
+            {
+                if (keydown == false)
+                {
+                    keydownTime = Time.timeSinceLevelLoad;
+                    keydown = true;
+                }
+
+            }
+
+            if (Input.GetButtonUp("Jump"))
+            {
+                keydown = false;
+                keyupTime = Time.timeSinceLevelLoad;
+
+                // if (SpawnOrNot())
+                // {
+                Spawn();
+                // }
+            }
+
+
         }
-        //bool spawnOrNot = micListener.Spawn();
-        if (SpawnOrNot())
-         {
-            Spawn();
-          }
+#if !UNITY_WEBGL
+        if (micInput && MicInput.MicLoudnessinDecibels > -60)
+        {
+            keydownTime = Time.timeSinceLevelLoad;
+            keydown = true;
+            
+        } else if (micInput && keydown == true)
+            {
+                keyupTime = Time.timeSinceLevelLoad;
+                keydown = false;
+
+                Spawn();
+            }
         
+#endif
     }
+
+        float getTimePressed()
+    {
+        //Debug.Log("timepressed: " + (keyupTime - keydownTime));
+        return (keyupTime - keydownTime);
+    }
+
 
     public void Spawn()
     {
-        if ((Time.timeSinceLevelLoad - lastSpawned) > spawnRate)
-        {
-            SpawnObject();
+       // float timePressed = keydownTime - keyupTime;
+      //  if ((getTimePressed()) > spawnRate)
+       // {
+            int index = (int)(getTimePressed() / spawnRate);
+            if (index < 1)
+            {
+                index = 0;
+            } else if (index > projectileList.Length - 1)
+            {
+                index = projectileList.Length - 1;
+            }
+            Debug.Log("index: " + index);
+            SpawnObject(projectileList[index]);
             lastSpawned = Time.timeSinceLevelLoad;
-        }
+       // }
     }
 
-    public void SpawnObject()
+    public void SpawnObject(GameObject projectile)
     {
-        if (objectPrefab != null)
+        if (projectile != null)
         {
-
             GameObject waveholder = new GameObject();
                 waveholder.AddComponent<TimedObjectDestroyer>();
 
@@ -87,7 +144,7 @@ public class shockwave_spawner : MonoBehaviour
                 //sizeChange.y += 1.0f;
               //  waveholder.transform.localScale = waveholder.transform.localScale + (1 * sizeChange);
             waveholder.transform.localScale = waveholder.transform.localScale + (1 * sizeChange);
-            GameObject newGameObject = Instantiate(objectPrefab, transform.position, transform.rotation, waveholder.transform);
+            GameObject newGameObject = Instantiate(projectile, transform.position, transform.rotation, waveholder.transform);
 
     }
 }
