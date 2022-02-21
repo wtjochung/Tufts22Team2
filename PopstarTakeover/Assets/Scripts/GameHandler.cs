@@ -46,6 +46,8 @@ public class GameHandler : MonoBehaviour
         paparazziSaved = 0;
         fanLost = 0;
         paparazziLost = 0;
+
+        gotScore = 0;
 }
 
     
