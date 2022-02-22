@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 100234861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.47, y: 0.18, z: 0}
-  m_LocalScale: {x: 23.10375, y: 10.673, z: 1}
+  m_LocalScale: {x: 27.435703, y: 13.207837, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -703,10 +703,10 @@ RectTransform:
   m_Father: {fileID: 497224300}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -208, y: 314}
-  m_SizeDelta: {x: 392.5967, y: 68.4199}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -196.3, y: -48}
+  m_SizeDelta: {x: 392.59668, y: 68.41989}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1505534681
 MonoBehaviour:
@@ -900,10 +900,10 @@ RectTransform:
   m_Father: {fileID: 497224300}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 429, y: 314}
-  m_SizeDelta: {x: 392.5967, y: 68.4199}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -211, y: -48}
+  m_SizeDelta: {x: 392.59668, y: 68.41989}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728140309
 MonoBehaviour:
@@ -1053,8 +1053,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851419087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.7, y: -0, z: 0}
-  m_LocalScale: {x: 3.8660936, y: 11.153, z: 1}
+  m_LocalPosition: {x: -11.6, y: -0, z: 0}
+  m_LocalScale: {x: 11.598281, y: 13.596204, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -1139,6 +1139,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3349547841932237048, guid: 6a18fd9b82309ff47aa6aaa9b4c3f72f, type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3349547841932237048, guid: 6a18fd9b82309ff47aa6aaa9b4c3f72f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3349547841932237049, guid: 6a18fd9b82309ff47aa6aaa9b4c3f72f, type: 3}
       propertyPath: m_Name
       value: BGM
