@@ -38,7 +38,7 @@ public class shockwave_spawner : MonoBehaviour
     private float keydownTime;
     private float keyupTime;
     //private bool isWebGL = false;
-  
+
     [Tooltip("Default = 0,0,0; To flatten: from y=0 to y=-0.9")]
     public Vector3 sizeChange;
     //public GameObject scaleObject = null;
@@ -50,7 +50,7 @@ public class shockwave_spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
 
 
     }
@@ -88,7 +88,7 @@ public class shockwave_spawner : MonoBehaviour
         {
             keydownTime = Time.timeSinceLevelLoad;
             keydown = true;
-            
+
         } else if (micInput && keydown == true)
             {
                 keyupTime = Time.timeSinceLevelLoad;
@@ -96,7 +96,7 @@ public class shockwave_spawner : MonoBehaviour
 
                 Spawn();
             }
-        
+
 #endif
     }
 
@@ -132,6 +132,8 @@ public class shockwave_spawner : MonoBehaviour
         {
             GameObject waveholder = new GameObject();
                 waveholder.AddComponent<TimedObjectDestroyer>();
+            //Plays pew sound of uploaded audio
+            gameObject.GetComponent<AudioSource>().Play();
 
             //TODO: Get microphone input through MicListener script and adjust y accordingly (from 0 to -0.9)
            // Vector3 temp = transform.position;
