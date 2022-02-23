@@ -12,7 +12,7 @@ public class NPCMovement : MonoBehaviour
     public float destroyDistance = 50.0f;
 
     public bool goLeft = true;
-
+    public bool disableLeftMovement;
    
     /// <summary>
     /// Description:
@@ -38,13 +38,17 @@ public class NPCMovement : MonoBehaviour
     /// </summary>
     private void MoveNPC()
     {
-        // move the transform
-        if (goLeft)
+        if (!disableLeftMovement)
         {
-            transform.position = transform.position - transform.right * speed * Time.deltaTime;
-        } else
-        {
-            transform.position = transform.position + transform.right * speed * Time.deltaTime;
+            // move the transform
+            if (goLeft)
+            {
+                transform.position = transform.position - transform.right * speed * Time.deltaTime;
+            }
+            else
+            {
+                transform.position = transform.position + transform.right * speed * Time.deltaTime;
+            }
         }
         
 
@@ -61,6 +65,7 @@ public class NPCMovement : MonoBehaviour
     public void changeDirection()
     {
         goLeft = !goLeft;
+        disableLeftMovement = false;
     }
 
     public void DestroyNPC()
