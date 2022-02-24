@@ -208,7 +208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7141644875465954455, guid: 08e86df66d45a944a816519d8f9711ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -48
+      value: -74
       objectReference: {fileID: 0}
     - target: {fileID: 7141644875465954455, guid: 08e86df66d45a944a816519d8f9711ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -810,9 +810,9 @@ RectTransform:
   m_Father: {fileID: 497224300}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -196.3, y: -48}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 443.7, y: -71}
   m_SizeDelta: {x: 392.59668, y: 68.41989}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1505534681
@@ -874,13 +874,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dfe0b5b14f87141bfa7b49943a8de719, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 183
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1110,7 +1110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -211, y: -48}
+  m_AnchoredPosition: {x: -240, y: -74}
   m_SizeDelta: {x: 392.59668, y: 68.41989}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728140309
@@ -1349,7 +1349,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3349547841932237048, guid: 6a18fd9b82309ff47aa6aaa9b4c3f72f, type: 3}
       propertyPath: m_Volume
-      value: 0.6
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 3349547841932237048, guid: 6a18fd9b82309ff47aa6aaa9b4c3f72f, type: 3}
       propertyPath: m_Enabled
