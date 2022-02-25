@@ -69,9 +69,11 @@ public class SoundwaveCollision : MonoBehaviour
                 if (name.Contains("Fan"))
                 {
                     GameHandler.fanSaved++;
+                    Debug.Log("fan saved: " + GameHandler.fanSaved);
                 } else if (name.Contains("Paparazzi"))
                 {
                     GameHandler.paparazziSaved++;
+                    Debug.Log("paparazzi saved: " + GameHandler.paparazziSaved);
                 }
 
             }

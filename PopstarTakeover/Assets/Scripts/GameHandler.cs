@@ -47,6 +47,8 @@ public class GameHandler : MonoBehaviour
         fanLost = 0;
         paparazziLost = 0;
 
+        currSeats = seatsAvailable;
+
         gotScore = 0;
 }
 
@@ -114,7 +116,6 @@ public class GameHandler : MonoBehaviour
         {
             determineWinState();
         }
-
     }
 
     void determineWinState()
