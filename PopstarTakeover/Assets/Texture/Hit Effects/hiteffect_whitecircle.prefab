@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8604048037492149582}
   - component: {fileID: 8604048037492149577}
   - component: {fileID: 6366027166005439051}
+  - component: {fileID: -603191842827782305}
   m_Layer: 0
   m_Name: hiteffect_whitecircle
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,3 +119,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 1
   destroyChildrenOnDeath: 1
+--- !u!58 &-603191842827782305
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604048037492149576}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.026946861, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.958089

@@ -9,11 +9,16 @@ public class projectileAttack : MonoBehaviour
     public float speed = 10f;
     public GameObject hitEffectAnim;
     public float SelfDestructTime = 10.0f;
-  
+
+    public float scale = 1f;
+    private Vector3 scaleChange;
+
+
 
     void Start()
     {
         StartCoroutine(selfDestruct());
+        scaleChange = new Vector3(scale-1, scale-1, scale-1);
         //gameObject.AddForce(fwd * projectileSpeed, ForceMode.Impulse);
     }
 
@@ -29,7 +34,9 @@ public class projectileAttack : MonoBehaviour
         //Debug.Log("note hits other object");
         if (other.gameObject.tag != "Player")
         {
+            
             GameObject animEffect = Instantiate(hitEffectAnim, transform.position, Quaternion.identity);
+            animEffect.transform.localScale += scaleChange;
             Destroy(animEffect, 0.5f);
             Destroy(gameObject);
         }

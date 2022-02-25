@@ -7,8 +7,9 @@ public class waveSpawner : MonoBehaviour
 
     public GameObject objectPrefab = null;
     [Tooltip("Smaller value = faster spawn")]
-    public float spawnChance = 0.5f;
-    public float spawnRate = 10f;
+    //public float spawnChance = 0.5f;
+    public float spawnRate = 20f;
+    public float spawnedPerWave;
 
  
 
@@ -46,7 +47,7 @@ public class waveSpawner : MonoBehaviour
             // Debug.Log(random);
             // if (random > 5)
             //{
-            for (int i = 0; i < 7; i++) SpawnObject();
+            for (int i = 0; i < spawnedPerWave; i++) SpawnObject();
 
             lastSpawned = Time.timeSinceLevelLoad;
             //  }

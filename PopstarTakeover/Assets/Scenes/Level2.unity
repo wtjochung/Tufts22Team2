@@ -409,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 6392864561089372762, guid: 56f6fc4be451dd440ab4758f2b8850d3, type: 3}
     - target: {fileID: 3701253040731170316, guid: 024cb09dfb8da0d4d9978eddb19e4fe2, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3701253040731170316, guid: 024cb09dfb8da0d4d9978eddb19e4fe2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -660,10 +660,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 6392864561089372762, guid: 7bb9a3346af18744cb5633868d675992, type: 3}
-  spawnChance: 0.5
-  spawnRate: 10
-  spawnRangeX: 1
-  spawnRangeY: 10
+  spawnRate: 25
+  spawnedPerWave: 5
+  spawnRangeX: 2
+  spawnRangeY: 5
 --- !u!1001 &1127585266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -893,7 +893,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541573501}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dfe0b5b14f87141bfa7b49943a8de719, type: 3}
@@ -991,7 +991,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3701253040731170316, guid: 024cb09dfb8da0d4d9978eddb19e4fe2, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3701253040731170316, guid: 024cb09dfb8da0d4d9978eddb19e4fe2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1358,7 +1358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 952764216842454463, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 952764216842454463, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1417,8 +1417,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1505534679}
     - target: {fileID: 6283464876218484247, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
+      propertyPath: readMicInput
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283464876218484247, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
       propertyPath: seatsAvailable
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283464876218484247, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
+      propertyPath: readKeyboardInput
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
@@ -1435,7 +1443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3349547841932237048, guid: 6a18fd9b82309ff47aa6aaa9b4c3f72f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3349547841932237049, guid: 6a18fd9b82309ff47aa6aaa9b4c3f72f, type: 3}
       propertyPath: m_Name
@@ -1496,7 +1504,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3701253040731170316, guid: 024cb09dfb8da0d4d9978eddb19e4fe2, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3701253040731170316, guid: 024cb09dfb8da0d4d9978eddb19e4fe2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1557,7 +1565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4579196715943217170, guid: 19af0418e8913844c85e7401f69055f2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4579196715943217170, guid: 19af0418e8913844c85e7401f69055f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1642,7 +1650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438161251001, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438161251001, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1690,7 +1698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438803287156, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: micInput
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438803287156, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: spawnRate

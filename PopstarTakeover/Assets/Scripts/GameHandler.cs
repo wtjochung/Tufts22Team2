@@ -18,6 +18,12 @@ public class GameHandler : MonoBehaviour
     public int seatsAvailable;
     private int currSeats;
     public GameObject seatsText;
+
+    public bool readMicInput = true;
+    public bool readKeyboardInput = true;
+    public static bool micInput = true;
+    public static bool keyboardInput = true;
+
     public static int fanSaved;
     public static int paparazziSaved;
 
@@ -28,10 +34,12 @@ public class GameHandler : MonoBehaviour
     public static int gotScore = 0;
     public GameObject scoreText;
 
-    public bool isDefending = false;
+   
 
     public static bool stairCaseUnlocked = false;
     //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
+
+   
 
     private string sceneName;
 
@@ -48,11 +56,25 @@ public class GameHandler : MonoBehaviour
         paparazziLost = 0;
 
         currSeats = seatsAvailable;
-
         gotScore = 0;
-}
 
-    
+        micInput = readMicInput;
+        keyboardInput = readKeyboardInput;
+        Debug.Log("handler micinput " + readMicInput);
+        Debug.Log("handler keyboardinput " + readKeyboardInput);
+
+    }
+
+    public static bool readInMicInput()
+    {
+        
+        return micInput;
+    }
+
+    public static bool readInKeyboardInput()
+    {
+        return keyboardInput;
+    }
 
     public void updateStatsDisplay()
     {

@@ -121,6 +121,7 @@ MonoBehaviour:
   speed: 10
   hitEffectAnim: {fileID: 8604048037492149576, guid: df284819d8bbf95408486097de259cdc, type: 3}
   SelfDestructTime: 10
+  scale: 1.1
 --- !u!61 &8514667698527746321
 BoxCollider2D:
   m_ObjectHideFlags: 0
