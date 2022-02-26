@@ -11,7 +11,7 @@ public class PlayerControl : MonoBehaviour
     //public string axisName = "Hori";
     //public float jump = 1;
     public float screenHeight;
-    private float vertical;
+    
     private Touch currTouch;
 
     private void Start()
@@ -65,11 +65,7 @@ public class PlayerControl : MonoBehaviour
 
           //  }
         }
-        else
-        {
-            vertical = 0.0f;
-        }
-
+       
 
         //movement code
 

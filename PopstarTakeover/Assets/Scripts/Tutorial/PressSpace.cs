@@ -28,7 +28,8 @@ public class PressSpace : MonoBehaviour
     {
         pressedTime = keyupTime - keydownTime;
         length = (pressedTime / 0.3f);
-        if (Input.GetButtonDown("Jump"))
+       
+        if (Input.GetButtonDown("Jump") || shockwave_spawner.inputStart)
         {
             if (keydown == false)
             {
@@ -39,7 +40,7 @@ public class PressSpace : MonoBehaviour
 
         }
 
-        if (Input.GetButtonUp("Jump"))
+        if (Input.GetButtonUp("Jump") || !shockwave_spawner.inputStart)
         {
             keydown = false;
             keyupTime = Time.timeSinceLevelLoad;

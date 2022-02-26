@@ -19,10 +19,10 @@ public class GameHandler : MonoBehaviour
     private int currSeats;
     public GameObject seatsText;
 
-    public bool readMicInput = true;
-    public bool readKeyboardInput = true;
-    public static bool micInput = true;
-    public static bool keyboardInput = true;
+    public bool readMicInput;
+    public bool readKeyboardInput;
+    public static bool micInput;
+    public static bool keyboardInput;
 
     public static int fanSaved;
     public static int paparazziSaved;
@@ -33,6 +33,8 @@ public class GameHandler : MonoBehaviour
 
     public static int gotScore = 0;
     public GameObject scoreText;
+
+    public string sceneToLoad;
 
    
 
@@ -58,8 +60,14 @@ public class GameHandler : MonoBehaviour
         currSeats = seatsAvailable;
         gotScore = 0;
 
+        //todo delete - hardcoded stuff
+        readMicInput = true;
+        readKeyboardInput = false;
+        
         micInput = readMicInput;
         keyboardInput = readKeyboardInput;
+        
+
         Debug.Log("handler micinput " + readMicInput);
         Debug.Log("handler keyboardinput " + readKeyboardInput);
 
@@ -127,10 +135,12 @@ public class GameHandler : MonoBehaviour
 
     void Update()
     {         //delete this quit functionality when a Pause Menu is added
+        /*
         if (Input.GetKey("escape"))
         {
             Application.Quit();
         }
+        */
         updateStatsDisplay();
 
         currSeats = seatsAvailable - (fanSaved + paparazziSaved);
@@ -149,18 +159,29 @@ public class GameHandler : MonoBehaviour
         Debug.Log("fanratio" + fanratio);
         Debug.Log("pratio" + pratio);
 
-        if (fanratio >= 0.75f)
+        if (sceneToLoad.Length != 0)
         {
-            SceneManager.LoadScene("WinScreen");
-        } else if (pratio >= 0.75f)
+            SceneManager.LoadScene(sceneToLoad);
+        }
+        else
         {
-            SceneManager.LoadScene("LoseScreen");
-        } else if (fanLost >= 3)
-        {
-            SceneManager.LoadScene("NormalScreen");
-        } else
-        {
-            SceneManager.LoadScene("MediumScreen");
+
+            if (fanratio >= 0.75f)
+            {
+                SceneManager.LoadScene("WinScreen");
+            }
+            else if (pratio >= 0.75f)
+            {
+                SceneManager.LoadScene("LoseScreen");
+            }
+            else if (fanLost >= 3)
+            {
+                SceneManager.LoadScene("NormalScreen");
+            }
+            else
+            {
+                SceneManager.LoadScene("MediumScreen");
+            }
         }
     }
 

@@ -23,9 +23,11 @@ public class shockwave_spawner : MonoBehaviour
 
     public bool micInput;
     public bool keyboardInput;
-    private bool inputStart = false;
+    public static bool inputStart = false;
     private float inputStartTime;
     private float inputEndTime;
+
+    
  
     Queue volumeBuffer;
 
@@ -44,10 +46,10 @@ public class shockwave_spawner : MonoBehaviour
     {
         volumeBuffer = new Queue();
 
-       // GameHandler handler = GameObject.FindGameObjectsWithTag("GameController");
+        //GameHandler handler = GameObject.FindGameObjectsWithTag("GameController");
 
-        micInput = GameHandler.readInMicInput();
-        keyboardInput = GameHandler.readInKeyboardInput();
+       // micInput = GameHandler.readInMicInput();
+       // keyboardInput = GameHandler.readInKeyboardInput();
 
         Debug.Log("micinput " + micInput);
         Debug.Log("keyboardinput " + keyboardInput);
@@ -106,6 +108,13 @@ public class shockwave_spawner : MonoBehaviour
             }
         }
 #endif
+
+
+    }
+
+    public bool inputActive()
+    {
+        return inputStart;
     }
 
     private float averageMicLevel(float currVolume)
