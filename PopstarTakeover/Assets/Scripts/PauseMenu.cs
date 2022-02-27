@@ -76,6 +76,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameisPaused = true;
+        mixer.SetFloat("MusicVolume", 0);
+       // volumeLevel = sliderValue;
     }
 
     public void Resume()

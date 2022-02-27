@@ -80,6 +80,7 @@ public class Calibration : MonoBehaviour
 
     void startListening()
     {
+        #if !UNITY_WEBGL
         if (count < calibrationLength)
         {
             float currVolume = MicInput.MicLoudnessinDecibels;
@@ -103,10 +104,12 @@ public class Calibration : MonoBehaviour
 
 
         }
+#endif
     }
 
     void startListeningEnviro()
     {
+#if !UNITY_WEBGL
         Debug.Log("at listening enviro");
     
     count++;
@@ -127,6 +130,7 @@ public class Calibration : MonoBehaviour
             anim.SetBool("calibration_start", false);
             count = 0;
         }
+#endif
     }
 
     float getAverage(float[] volumeList)

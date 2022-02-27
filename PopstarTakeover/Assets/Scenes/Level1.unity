@@ -848,7 +848,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541573501}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: f0e6a4c5cbc04694696364601fb4ec2b, type: 2}
   m_audioClip: {fileID: 8300000, guid: dfe0b5b14f87141bfa7b49943a8de719, type: 3}
@@ -1319,7 +1319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6283464876218484247, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
       propertyPath: readMicInput
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6283464876218484247, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
       propertyPath: seatsAvailable
@@ -1327,7 +1327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6283464876218484247, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
       propertyPath: readKeyboardInput
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
@@ -1725,7 +1725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6406889580413862444, guid: a160b370d9141d24c91ba186f4ee7cb5, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a160b370d9141d24c91ba186f4ee7cb5, type: 3}
@@ -1956,7 +1956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438803287156, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: micInput
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438803287156, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: spawnRate
@@ -1964,7 +1964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438803287156, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: keyboardInput
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438803287156, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: projectileList.Array.size

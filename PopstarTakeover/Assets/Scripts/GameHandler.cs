@@ -67,8 +67,8 @@ public class GameHandler : MonoBehaviour
         }
 
         //todo delete - hardcoded stuff
-        readMicInput = true;
-        readKeyboardInput = false;
+        readMicInput = false;
+        readKeyboardInput = true;
         
         micInput = readMicInput;
         keyboardInput = readKeyboardInput;

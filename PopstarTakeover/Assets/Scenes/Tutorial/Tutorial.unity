@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8574038
 Transform:
   m_ObjectHideFlags: 0
@@ -449,7 +449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &188890977
 RectTransform:
   m_ObjectHideFlags: 0
@@ -466,7 +466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -309.50006, y: 62.505226}
+  m_AnchoredPosition: {x: -309.50006, y: 127}
   m_SizeDelta: {x: 401.0035, y: 237.393}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &188890978
@@ -1994,7 +1994,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541573501}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dfe0b5b14f87141bfa7b49943a8de719, type: 3}
@@ -2424,7 +2424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1747321589
 Transform:
   m_ObjectHideFlags: 0
@@ -2481,7 +2481,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 6563526625377053085, guid: 1676a8cfa259d674093b231ca13db380, type: 3}
-  m_Color: {r: 0.0934852, g: 0.9528302, b: 0.92730105, a: 1}
+  m_Color: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3338,8 +3338,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3349547841932237048, guid: 6a18fd9b82309ff47aa6aaa9b4c3f72f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3349547841932237048, guid: 6a18fd9b82309ff47aa6aaa9b4c3f72f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f0e6a4c5cbc04694696364601fb4ec2b, type: 2}
     - target: {fileID: 3349547841932237049, guid: 6a18fd9b82309ff47aa6aaa9b4c3f72f, type: 3}
       propertyPath: m_Name
       value: BGM
@@ -3888,7 +3892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438803287156, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: micInput
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438803287156, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: spawnRate
@@ -3896,7 +3900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438803287156, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: keyboardInput
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7574890438803287156, guid: 12b8338673392314e89a600796376295, type: 3}
       propertyPath: projectileList.Array.size
