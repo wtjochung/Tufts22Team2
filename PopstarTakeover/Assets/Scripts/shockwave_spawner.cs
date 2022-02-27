@@ -100,7 +100,7 @@ public class shockwave_spawner : MonoBehaviour
             currentVolume = currVolume;
            // Debug.Log("currVolume: " + currVolume);
 
-            if  (averageMicLevel(currVolume) > upperVolume)
+            if  (averageMicLevel(currVolume) > getVolumeCutoff())
             {
                 if (inputStart == false)
                 {
@@ -111,7 +111,7 @@ public class shockwave_spawner : MonoBehaviour
             }
             if (inputStart)
             {
-                if (averageMicLevel(currVolume) <= (upperVolume) && averageMicLevel(currVolume) > -200)
+                if (averageMicLevel(currVolume) <= (getVolumeCutoff()) && averageMicLevel(currVolume) > -200)
                 {
                     inputEndTime = Time.timeSinceLevelLoad;
                     inputStart = false;
@@ -158,7 +158,24 @@ public class shockwave_spawner : MonoBehaviour
     public void setUpperVolume()
     {
         upperVolume = GameHandler.getHighestVolume();
-        Debug.Log("volume in spawner: " + upperVolume);
+        
+       Debug.Log("volume in spawner: " + upperVolume);
+    }
+
+    private float getVolumeCutoff()
+    {
+        if (upperVolume < -210)
+        {
+            return -210;
+        }
+        if (upperVolume - defaultVolume > 20)
+        {
+            return upperVolume;
+        } else
+        {
+            return upperVolume + 10;
+        }
+        
     }
 
     public static float getMicLevel()
