@@ -64,16 +64,16 @@ public class SoundwaveCollision : MonoBehaviour
             }
             else if (collision.gameObject.tag == "Scorezone")
             {
-                Debug.Log("in scorezone, name: " + name);
+              //  Debug.Log("in scorezone, name: " + name);
                 GameHandler.gotScore += scoreIncreaseAtScorezone;
                 if (name.Contains("Fan"))
                 {
                     GameHandler.fanSaved++;
-                    Debug.Log("fan saved: " + GameHandler.fanSaved);
+                   // Debug.Log("fan saved: " + GameHandler.fanSaved);
                 } else if (name.Contains("Paparazzi"))
                 {
                     GameHandler.paparazziSaved++;
-                    Debug.Log("paparazzi saved: " + GameHandler.paparazziSaved);
+                   // Debug.Log("paparazzi saved: " + GameHandler.paparazziSaved);
                 }
 
             }

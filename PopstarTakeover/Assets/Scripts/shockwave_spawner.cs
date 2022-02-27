@@ -27,6 +27,9 @@ public class shockwave_spawner : MonoBehaviour
     private float inputStartTime;
     private float inputEndTime;
 
+    public static float currentVolume;
+    private float defaultVolume;
+    private float upperVolume;
     
  
     Queue volumeBuffer;
@@ -48,8 +51,13 @@ public class shockwave_spawner : MonoBehaviour
 
         //GameHandler handler = GameObject.FindGameObjectsWithTag("GameController");
 
-       // micInput = GameHandler.readInMicInput();
-       // keyboardInput = GameHandler.readInKeyboardInput();
+        // micInput = GameHandler.readInMicInput();
+        // keyboardInput = GameHandler.readInKeyboardInput();
+
+        currentVolume = -250;
+        defaultVolume = -70;
+
+
 
         Debug.Log("micinput " + micInput);
         Debug.Log("keyboardinput " + keyboardInput);
@@ -84,10 +92,15 @@ public class shockwave_spawner : MonoBehaviour
 #if !UNITY_WEBGL
         if (micInput)
         {
-            float currVolume = MicInput.MicLoudnessinDecibels;
-            Debug.Log("currVolume");
+            setDefaultVolume();
+            setUpperVolume();
 
-            if  (averageMicLevel(currVolume) > -80)
+            float currVolume = MicInput.MicLoudnessinDecibels;
+            if (currVolume < -200 || currVolume > 1) currVolume = -200;
+            currentVolume = currVolume;
+           // Debug.Log("currVolume: " + currVolume);
+
+            if  (averageMicLevel(currVolume) > upperVolume)
             {
                 if (inputStart == false)
                 {
@@ -98,7 +111,7 @@ public class shockwave_spawner : MonoBehaviour
             }
             if (inputStart)
             {
-                if (averageMicLevel(currVolume) <= -80 && averageMicLevel(currVolume) > -200)
+                if (averageMicLevel(currVolume) <= (upperVolume) && averageMicLevel(currVolume) > -200)
                 {
                     inputEndTime = Time.timeSinceLevelLoad;
                     inputStart = false;
@@ -117,7 +130,7 @@ public class shockwave_spawner : MonoBehaviour
         return inputStart;
     }
 
-    private float averageMicLevel(float currVolume)
+    public float averageMicLevel(float currVolume)
     {
         
         volumeBuffer.Enqueue(currVolume);
@@ -132,10 +145,26 @@ public class shockwave_spawner : MonoBehaviour
         }
         average /= volumeBuffer.Count;
 
-        Debug.Log("average volume: " + average);
+       // Debug.Log("average volume: " + average);
         return average;
     }
 
+    public void setDefaultVolume()
+    {
+        defaultVolume = GameHandler.getBaselineVolume();
+       
+    }
+
+    public void setUpperVolume()
+    {
+        upperVolume = GameHandler.getHighestVolume();
+        Debug.Log("volume in spawner: " + upperVolume);
+    }
+
+    public static float getMicLevel()
+    {
+        return currentVolume;
+    }
     
 
         float getTimePressed()

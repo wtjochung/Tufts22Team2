@@ -24,6 +24,9 @@ public class GameHandler : MonoBehaviour
     public static bool micInput;
     public static bool keyboardInput;
 
+    private static float baselineVolume;
+    private static float highestVolume;
+
     public static int fanSaved;
     public static int paparazziSaved;
 
@@ -58,7 +61,10 @@ public class GameHandler : MonoBehaviour
         paparazziLost = 0;
 
         currSeats = seatsAvailable;
-        gotScore = 0;
+        if (sceneName == "MainMenu")
+        {
+            gotScore = 0;
+        }
 
         //todo delete - hardcoded stuff
         readMicInput = true;
@@ -66,6 +72,9 @@ public class GameHandler : MonoBehaviour
         
         micInput = readMicInput;
         keyboardInput = readKeyboardInput;
+
+        baselineVolume = -80;
+        highestVolume = -75;
         
 
         Debug.Log("handler micinput " + readMicInput);
@@ -73,9 +82,25 @@ public class GameHandler : MonoBehaviour
 
     }
 
+    public static void updateBaselineVolume(float enviroVolume, float highVolume)
+    {
+        baselineVolume = enviroVolume;
+        highestVolume = highVolume;
+    }
+
+    public static float getBaselineVolume()
+    {
+        return baselineVolume;
+    }
+
+    public static float getHighestVolume()
+    {
+        return highestVolume;
+    }
+
+
     public static bool readInMicInput()
     {
-        
         return micInput;
     }
 

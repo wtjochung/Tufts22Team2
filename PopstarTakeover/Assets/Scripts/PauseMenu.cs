@@ -11,16 +11,19 @@ public class PauseMenu : MonoBehaviour
     public static bool GameisPaused = false;
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
+    public GameObject calibrationMenuUI;
     public AudioMixer mixer;
     public static float volumeLevel = 0.7f;
     private Slider sliderVolumeCtrl;
     private bool settings;
+    private bool calibrate;
 
     void Awake()
     {
         pauseMenuUI.SetActive(false);
         SetLevel(volumeLevel);
         settings = false;
+        calibrate = false;
         /*
         GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
         if (sliderTemp != null)
@@ -60,6 +63,14 @@ public class PauseMenu : MonoBehaviour
         //GameisPaused = settings;
     }
 
+    public void calibrationMenu()
+    {
+        calibrate = !calibrate;
+        calibrationMenuUI.SetActive(calibrate);
+        Time.timeScale = 0f;
+        GameisPaused = calibrate;
+    }
+
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
@@ -70,6 +81,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        calibrationMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameisPaused = false;
     }
