@@ -59,7 +59,7 @@ public class SoundwaveCollision : MonoBehaviour
                     GameHandler.paparazziLost++;
                 }
 
-                //Destroy(gameObject);
+                
                 //Debug.Log("soundwave collision");
             }
             else if (collision.gameObject.tag == "Scorezone")
@@ -75,6 +75,7 @@ public class SoundwaveCollision : MonoBehaviour
                     GameHandler.paparazziSaved++;
                    // Debug.Log("paparazzi saved: " + GameHandler.paparazziSaved);
                 }
+                Destroy(gameObject);
 
             }
         }

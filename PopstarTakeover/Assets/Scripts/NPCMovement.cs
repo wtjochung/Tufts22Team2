@@ -47,7 +47,9 @@ public class NPCMovement : MonoBehaviour
             }
             else
             {
+                
                 transform.position = transform.position + transform.right * speed * Time.deltaTime;
+               
             }
         }
         
@@ -64,6 +66,8 @@ public class NPCMovement : MonoBehaviour
 
     public void changeDirection()
     {
+        Vector3 scaleChange = new Vector3(transform.localScale.x, 0, 0);
+        transform.localScale = transform.localScale - 2 * scaleChange;
         goLeft = !goLeft;
         disableLeftMovement = false;
     }

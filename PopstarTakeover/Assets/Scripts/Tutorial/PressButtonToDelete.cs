@@ -8,13 +8,15 @@ public class PressButtonToDelete : MonoBehaviour
     public GameObject upArrow;
     public GameObject downArrow;
 
+    public float ydisplacement = 3;
+
     GameObject up;
     GameObject down;
 
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 y = new Vector3(0, 1, 0);
+        Vector3 y = new Vector3(0, ydisplacement, 0);
         up = Instantiate(upArrow, transform.position + y, transform.rotation);
         down = Instantiate(downArrow, transform.position - y, transform.rotation);
     }
