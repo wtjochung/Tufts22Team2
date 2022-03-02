@@ -15,6 +15,7 @@ public class PaparazziSpawner : MonoBehaviour
     [Tooltip("Smaller value = faster spawn")]
     public float spawnChance = 0.5f;
     public float spawnRate = 0.05f;
+    public int rows = 4;
 
     [Header("Spawn Position")]
     [Tooltip("The distance within which enemies can spawn in the X direction")]
@@ -80,10 +81,14 @@ public class PaparazziSpawner : MonoBehaviour
     protected virtual Vector3 GetSpawnLocation()
     {
         // Get random coordinates
-        float x = Random.Range(0 - spawnRangeX, spawnRangeX);
-        float y = Random.Range(0 - spawnRangeY, spawnRangeY);
+        //int x = (int)Random.Range(0 - spawnRangeX, spawnRangeX);
+        int x = 0;
+        int y = (int)Random.Range(0, rows);
+        float interval = spawnRangeY / rows;
+
+
         // Return the coordinates as a vector
-        return new Vector3(transform.position.x + x, transform.position.y + y, 0);
+        return new Vector3(transform.position.x + x, transform.position.y + (y * interval), 0);
     }
 
 }
