@@ -10,6 +10,7 @@ public class waveSpawner : MonoBehaviour
     //public float spawnChance = 0.5f;
     public float spawnRate = 20f;
     public float spawnedPerWave;
+    public int rows = 4;
 
  
 
@@ -77,11 +78,13 @@ public class waveSpawner : MonoBehaviour
 
     protected virtual Vector3 GetSpawnLocation()
     {
-        // Get random coordinates
-        float x = Random.Range(0 - spawnRangeX, spawnRangeX);
-        float y = Random.Range(0 - spawnRangeY, spawnRangeY);
+        int x = 0;
+        int y = (int)Random.Range(0, rows);
+        float interval = spawnRangeY / rows;
+
+
         // Return the coordinates as a vector
-        return new Vector3(transform.position.x + x, transform.position.y + y, 0);
+        return new Vector3(transform.position.x + x, transform.position.y + (y * interval), 0);
     }
 
 }

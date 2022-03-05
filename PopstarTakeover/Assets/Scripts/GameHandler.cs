@@ -39,6 +39,9 @@ public class GameHandler : MonoBehaviour
 
     public string sceneToLoad;
 
+    public GameObject fanRatioStrip;
+    public GameObject paparazziRatioStrip;
+
    
 
     public static bool stairCaseUnlocked = false;
@@ -82,6 +85,44 @@ public class GameHandler : MonoBehaviour
 
     }
 
+    private void updateRatioDisplay()
+    {
+        if (fanRatioStrip != null)
+        {
+            /* Vector3 scaleChange = new Vector3(0, 0, 0);
+
+
+             fanRatioStrip.transform.localScale += scaleChange;
+
+            */
+            //  float size = fanRatioStrip.GetComponent<Renderer>().bounds.size.x;
+
+            //  Vector3 rescale = fanRatioStrip.transform.localScale;
+
+            //  rescale.x = getFanRatio() * 10 * rescale.x / size;
+
+            // fanRatioStrip.transform.localScale = rescale;
+
+            Vector3 scaleChange = new Vector3(12 * getFanRatio(), 0.6f, 1);
+            fanRatioStrip.transform.localScale = scaleChange;
+
+        } 
+        if (paparazziRatioStrip != null)
+        {
+            /*
+            float size = paparazziRatioStrip.GetComponent<Renderer>().bounds.size.x;
+
+            Vector3 rescale = paparazziRatioStrip.transform.localScale;
+
+            rescale.x = getPaparazziRatio()* 10 * rescale.x / size;
+
+            paparazziRatioStrip.transform.localScale = rescale;
+            */
+            Vector3 scaleChange = new Vector3(12 * getPaparazziRatio(), 0.6f, 1);
+            paparazziRatioStrip.transform.localScale = scaleChange;
+        }
+    }
+
     public static void updateBaselineVolume(float enviroVolume, float highVolume)
     {
         baselineVolume = enviroVolume;
@@ -119,6 +160,8 @@ public class GameHandler : MonoBehaviour
 
         Text seatsTextTemp = seatsText.GetComponent<Text>();
         seatsTextTemp.text = currSeats + " seats remaining";
+
+        updateRatioDisplay();
 
     }
 
@@ -179,8 +222,8 @@ public class GameHandler : MonoBehaviour
     {
        
         
-        float fanratio = (float)fanSaved / seatsAvailable;
-        float pratio = (float)paparazziSaved / seatsAvailable;
+        float fanratio = getFanRatio();
+        float pratio = getPaparazziRatio();
         Debug.Log("fanratio" + fanratio);
         Debug.Log("pratio" + pratio);
 
@@ -189,8 +232,7 @@ public class GameHandler : MonoBehaviour
             SceneManager.LoadScene(sceneToLoad);
         }
         else
-        {
-
+        { 
             if (fanratio >= 0.75f)
             {
                 SceneManager.LoadScene("WinScreen");
@@ -208,6 +250,27 @@ public class GameHandler : MonoBehaviour
                 SceneManager.LoadScene("MediumScreen");
             }
         }
+    }
+
+    public float getFanRatio()
+    {
+       // return ((float)fanSaved / seatsAvailable);
+       if (fanSaved + paparazziSaved == 0)
+        {
+            return 0;
+        }
+        return ((float)fanSaved / (fanSaved + paparazziSaved));
+
+    }
+
+    public float getPaparazziRatio()
+    {
+        // return ((float)paparazziSaved / seatsAvailable);
+        if (fanSaved + paparazziSaved == 0)
+        {
+            return 0;
+        }
+        return ((float)paparazziSaved / (fanSaved + paparazziSaved));
     }
 
     public void UpdatePlayerStat(int amount)

@@ -12,8 +12,9 @@ public class PaparazziSpawner : MonoBehaviour
 {
 
     public GameObject objectPrefab = null;
+    public GameObject objectPrefab2 = null;
     [Tooltip("Smaller value = faster spawn")]
-    public float spawnChance = 0.5f;
+    public float object2SpawnChance = 0.3f;
     public float spawnRate = 0.05f;
     public int rows = 4;
 
@@ -38,7 +39,6 @@ public class PaparazziSpawner : MonoBehaviour
     void Update()
     {
         
-        
            Spawn();
         
     }
@@ -60,17 +60,31 @@ public class PaparazziSpawner : MonoBehaviour
 
     public void SpawnObject()
     {
-        if (objectPrefab != null)
+        if (spawn2OrNot())
         {
-            // GameObject waveholder = new GameObject();
-            // waveholder.AddComponent<TimedObjectDestroyer>();
-
-            // waveholder.transform.localScale = waveholder.transform.localScale + (1 * sizeChange);
-
-            Quaternion q = objectPrefab.transform.rotation;
-           // q = Quaternion.AngleAxis(90f, transform.forward) * q;
-            GameObject newGameObject = Instantiate(objectPrefab, GetSpawnLocation(), q, null);
+            if (objectPrefab2 != null)
+            {
+                Quaternion q = objectPrefab.transform.rotation;
+                GameObject newGO = Instantiate(objectPrefab2, GetSpawnLocation(), q, null);
+            }
+        } else
+        {
+            if (objectPrefab != null)
+            {
+                Quaternion q = objectPrefab.transform.rotation;
+                GameObject newGameObject = Instantiate(objectPrefab, GetSpawnLocation(), q, null);
+            }
         }
+        
+    }
+
+    private bool spawn2OrNot()
+    {
+        int chance = Random.Range(0, 10);
+        float x = 10f;
+        float chanceFloat = chance / x;
+        Debug.Log("chance: " + chanceFloat);
+        return (chanceFloat <= object2SpawnChance);
     }
 
     public void changeSpawnRate(float newRate)
