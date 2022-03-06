@@ -193,9 +193,7 @@ public class shockwave_spawner : MonoBehaviour
 
     public void Spawn()
     {
-       // float timePressed = inputStartTime - inputEndTime;
-      //  if ((getTimePressed()) > spawnRate)
-       // {
+     
             int index = (int)(getTimePressed() / spawnRate);
             if (index < 1)
             {
@@ -204,10 +202,10 @@ public class shockwave_spawner : MonoBehaviour
             {
                 index = projectileList.Length - 1;
             }
-         //   Debug.Log("index: " + index);
+        
             SpawnObject(projectileList[index]);
             lastSpawned = Time.timeSinceLevelLoad;
-       // }
+     
     }
 
     public void SpawnObject(GameObject projectile)
