@@ -261,7 +261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7141644875465954454, guid: 08e86df66d45a944a816519d8f9711ef, type: 3}
       propertyPath: m_Text
-      value: 'Concert II
+      value: 'Concert III
 
 '
       objectReference: {fileID: 0}
@@ -545,7 +545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3701253040731170315, guid: 024cb09dfb8da0d4d9978eddb19e4fe2, type: 3}
       propertyPath: spawnRate
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3701253040731170315, guid: 024cb09dfb8da0d4d9978eddb19e4fe2, type: 3}
       propertyPath: spawnChance
@@ -1031,11 +1031,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 834e77b36f25e4546b076528575c2efb, type: 3}
---- !u!1 &1174395416 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8265453675806847278, guid: 6363f914032112a49ac4eb1701e38e3f, type: 3}
-  m_PrefabInstance: {fileID: 22826465}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1464638614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2193,10 +2188,10 @@ PrefabInstance:
     - target: {fileID: 6283464876218484247, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
       propertyPath: endSceneMenuUI
       value: 
-      objectReference: {fileID: 1174395416}
+      objectReference: {fileID: 0}
     - target: {fileID: 6283464876218484247, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
       propertyPath: seatsAvailable
-      value: 35
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6283464876218484247, guid: dd3bf6554503ffb499dcf15f5951e175, type: 3}
       propertyPath: readKeyboardInput
@@ -2302,7 +2297,7 @@ PrefabInstance:
       objectReference: {fileID: 6263537474870374437, guid: 0015485bf7f7b1d449e13b011e69955a, type: 3}
     - target: {fileID: 3701253040731170315, guid: 024cb09dfb8da0d4d9978eddb19e4fe2, type: 3}
       propertyPath: object2SpawnChance
-      value: 0.2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3701253040731170316, guid: 024cb09dfb8da0d4d9978eddb19e4fe2, type: 3}
       propertyPath: m_RootOrder

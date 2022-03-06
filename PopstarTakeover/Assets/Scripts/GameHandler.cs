@@ -19,6 +19,9 @@ public class GameHandler : MonoBehaviour
     private int currSeats;
     public GameObject seatsText;
 
+    public GameObject fanText;
+    public GameObject paparazziText;
+
     public bool readMicInput;
     public bool readKeyboardInput;
     public static bool micInput;
@@ -42,7 +45,10 @@ public class GameHandler : MonoBehaviour
     public GameObject fanRatioStrip;
     public GameObject paparazziRatioStrip;
 
-   
+    public GameObject endSceneMenuUI;
+
+
+
 
     public static bool stairCaseUnlocked = false;
     //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
@@ -226,9 +232,26 @@ public class GameHandler : MonoBehaviour
         float pratio = getPaparazziRatio();
         Debug.Log("fanratio" + fanratio);
         Debug.Log("pratio" + pratio);
-
-        if (sceneToLoad.Length != 0)
+       
+        if (endSceneMenuUI != null)
         {
+           endSceneMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+
+            if (fanText != null)
+            {
+                Text fanTextTemp = fanText.GetComponent<Text>();
+                fanTextTemp.text = (Mathf.Round(getFanRatio()) * 100) + "% of your audience are your fans.";
+            }
+            if (paparazziText != null)
+            {
+                Text paparazziTextTemp = paparazziText.GetComponent<Text>();
+                paparazziTextTemp.text = "You managed to drive away " + paparazziLost + " paparazzis!";
+            }
+        }
+        else if (sceneToLoad.Length != 0)
+        {
+            
             SceneManager.LoadScene(sceneToLoad);
         }
         else

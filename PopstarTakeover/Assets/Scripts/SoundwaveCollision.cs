@@ -23,18 +23,11 @@ public class SoundwaveCollision : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("collision");
+        string collidedWith = collision.gameObject.tag;
         if (!gotHit)
         {
-            if (collision.gameObject.tag == "Player")
-            {
-                //EnemyLives -= 1;
-                //StopCoroutine("HitEnemy");
-                //StartCoroutine("HitEnemy");
-                //Destroy(gameObject);
-                Debug.Log("player collision");
-            }
-            else if (collision.gameObject.tag == "Attack")
+            
+            if (collidedWith == "Attack")
             {
                 //EnemyLives -= EnemyLives;
                 //rend.material.color = new Color(2.4f, 0.9f, 0.9f, 0.5f);
@@ -62,7 +55,7 @@ public class SoundwaveCollision : MonoBehaviour
                 
                 //Debug.Log("soundwave collision");
             }
-            else if (collision.gameObject.tag == "Scorezone")
+            else if (collidedWith == "Scorezone")
             {
               //  Debug.Log("in scorezone, name: " + name);
                 GameHandler.gotScore += scoreIncreaseAtScorezone;

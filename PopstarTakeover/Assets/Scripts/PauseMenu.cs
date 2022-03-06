@@ -106,6 +106,11 @@ public class PauseMenu : MonoBehaviour
 #endif
     }
 
+    public void changeLevel(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
+
     public void SetLevel(float sliderValue)
     {
        // mixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 20);

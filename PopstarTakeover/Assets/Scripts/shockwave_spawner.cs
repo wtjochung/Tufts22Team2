@@ -204,7 +204,7 @@ public class shockwave_spawner : MonoBehaviour
             {
                 index = projectileList.Length - 1;
             }
-            Debug.Log("index: " + index);
+         //   Debug.Log("index: " + index);
             SpawnObject(projectileList[index]);
             lastSpawned = Time.timeSinceLevelLoad;
        // }

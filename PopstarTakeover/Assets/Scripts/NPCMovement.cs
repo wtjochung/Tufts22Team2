@@ -64,6 +64,11 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
+    public bool goingLeft()
+    {
+        return goLeft;
+    }
+
     public void changeDirection()
     {
         Vector3 scaleChange = new Vector3(transform.localScale.x, 0, 0);

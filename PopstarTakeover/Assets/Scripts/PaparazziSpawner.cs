@@ -83,7 +83,7 @@ public class PaparazziSpawner : MonoBehaviour
         int chance = Random.Range(0, 10);
         float x = 10f;
         float chanceFloat = chance / x;
-        Debug.Log("chance: " + chanceFloat);
+       // Debug.Log("chance: " + chanceFloat);
         return (chanceFloat <= object2SpawnChance);
     }
 
