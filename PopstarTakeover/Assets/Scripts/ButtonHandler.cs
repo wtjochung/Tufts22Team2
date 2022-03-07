@@ -12,5 +12,10 @@ public class ButtonHandler : MonoBehaviour
         if (sceneToLoad != "")SceneManager.LoadScene(sceneToLoad);
     }
 
+    public void changeScene(string sceneName)
+    {
+        if (sceneName != "") SceneManager.LoadScene(sceneName);
+    }
+
     
 }

@@ -109,7 +109,8 @@ public class GameHandler : MonoBehaviour
 
             // fanRatioStrip.transform.localScale = rescale;
 
-            Vector3 scaleChange = new Vector3(12 * getFanRatio(), 0.6f, 1);
+           // Vector3 scaleChange = new Vector3(12 * getFanRatio(), 0.6f, 1);
+            Vector3 scaleChange = new Vector3((float)(getFanRatio() * 0.32), 0.0324f, 1);
             fanRatioStrip.transform.localScale = scaleChange;
 
         } 
@@ -124,7 +125,8 @@ public class GameHandler : MonoBehaviour
 
             paparazziRatioStrip.transform.localScale = rescale;
             */
-            Vector3 scaleChange = new Vector3(12 * getPaparazziRatio(), 0.6f, 1);
+           // Vector3 scaleChange = new Vector3(12 * getPaparazziRatio(), 0.6f, 1);
+           Vector3 scaleChange = new Vector3((float)(getPaparazziRatio() * 0.32), 0.0324f, 1);
             paparazziRatioStrip.transform.localScale = scaleChange;
         }
     }
@@ -241,7 +243,7 @@ public class GameHandler : MonoBehaviour
             if (fanText != null)
             {
                 Text fanTextTemp = fanText.GetComponent<Text>();
-                fanTextTemp.text = (Mathf.Round(getFanRatio()) * 100) + "% of your audience are your fans.";
+                fanTextTemp.text = Mathf.Round(getFanRatio() * 100) + "% of your audience are your fans.";
             }
             if (paparazziText != null)
             {
