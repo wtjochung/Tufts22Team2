@@ -269,6 +269,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 7141644875465954454, guid: 08e86df66d45a944a816519d8f9711ef, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7141644875465954455, guid: 08e86df66d45a944a816519d8f9711ef, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -335,11 +339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7141644875465954455, guid: 08e86df66d45a944a816519d8f9711ef, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -125
+      value: 158
       objectReference: {fileID: 0}
     - target: {fileID: 7141644875465954455, guid: 08e86df66d45a944a816519d8f9711ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -120
+      value: -55
       objectReference: {fileID: 0}
     - target: {fileID: 7141644875465954455, guid: 08e86df66d45a944a816519d8f9711ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -433,6 +437,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5988484772701355309, guid: f00db238054d33344931b5b9d01d71c7, type: 3}
+      propertyPath: calibrationLength
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5988484773172094912, guid: f00db238054d33344931b5b9d01d71c7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.01

@@ -23,6 +23,9 @@ public class Calibration : MonoBehaviour
 
     Queue volumeBuffer;
 
+    float startCalibTimeEnv;
+    float startCalibTimeVoice;
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,15 +52,16 @@ public class Calibration : MonoBehaviour
     public void startCalibration()
     {
         start = true;
+        startCalibTimeVoice = Time.unscaledTime;
         count = 0;
         startEnvironVolume = false;
         anim.SetBool("calibration_start", start);
 
         volumeBuffer = new Queue();
 
-        voiceVolumeList = new float[calibrationLength + 10];
-        enviroVolumeList = new float[calibrationLength + 10];
-        for (int i = 0; i < calibrationLength + 10; i++)
+        voiceVolumeList = new float[1024];
+        enviroVolumeList = new float[1024];
+        for (int i = 0; i < 1024; i++)
         {
             enviroVolumeList[i] = -210;
         }
@@ -69,10 +73,12 @@ public class Calibration : MonoBehaviour
         
         if (start)
         {
+           
             startListening();
             Debug.Log("calibration start");
         } else if (startEnvironVolume)
         {
+            startCalibTimeEnv = Time.unscaledTime;
             startListeningEnviro();
         }
        
@@ -80,11 +86,16 @@ public class Calibration : MonoBehaviour
 
     void startListening()
     {
-        #if !UNITY_WEBGL
-        if (count < calibrationLength)
+#if !UNITY_WEBGL
+        float timeLength = Time.unscaledTime - startCalibTimeVoice;
+        Debug.Log("curr time :" + Time.unscaledTime);
+        Debug.Log("start time: " + startCalibTimeVoice);
+        if (timeLength < calibrationLength && count < 1024)
         {
+            timeLength = Time.unscaledTime - startCalibTimeVoice;
             float currVolume = MicInput.MicLoudnessinDecibels;
-
+            Debug.Log("voice length :" + timeLength);
+          
 
             voiceVolumeList[count] = averageMicLevel(currVolume);
 
@@ -110,18 +121,24 @@ public class Calibration : MonoBehaviour
     void startListeningEnviro()
     {
 #if !UNITY_WEBGL
+       
         Debug.Log("at listening enviro");
     
     count++;
-        if (count > 10 && count < calibrationLength)
+        float currDuration = Time.unscaledTime - startCalibTimeEnv;
+        if (count > 10 &&  count < 1024)
         {
             float currVolume = MicInput.MicLoudnessinDecibels;
-
-            enviroVolumeList[count] = averageMicLevel(currVolume);
-            //count++;
-            Debug.Log("calibrating enviro: " + count);
+            while (currDuration < calibrationLength)
+            {
+                currDuration = Time.unscaledTime - startCalibTimeEnv;
+                enviroVolumeList[count] = averageMicLevel(currVolume);
+                //count++;
+                Debug.Log("calibrating enviro: " + count);
+            }
         }
-        else if (count >= calibrationLength)
+           
+        else if (count >= 1023)
         {
             startEnvironVolume = false;
             enviroVolumeAvg = getAverage(enviroVolumeList);

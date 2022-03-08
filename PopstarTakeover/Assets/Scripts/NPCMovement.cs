@@ -13,7 +13,14 @@ public class NPCMovement : MonoBehaviour
 
     public bool goLeft = true;
     public bool disableLeftMovement;
-   
+
+    public Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
+
     /// <summary>
     /// Description:
     /// Standard Unity function called once per frame
@@ -72,8 +79,9 @@ public class NPCMovement : MonoBehaviour
     public void changeDirection()
     {
         Vector3 scaleChange = new Vector3(transform.localScale.x, 0, 0);
-        transform.localScale = transform.localScale - 2 * scaleChange;
+        //transform.localScale = transform.localScale - 2 * scaleChange;
         goLeft = !goLeft;
+        animator.SetBool("walk_back", !goLeft);
         disableLeftMovement = false;
     }
 

@@ -2205,15 +2205,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4546295495866388852, guid: 5d559ca7929cf304db14cf993c9762b8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -283
+      value: 234
       objectReference: {fileID: 0}
     - target: {fileID: 4546295495866388852, guid: 5d559ca7929cf304db14cf993c9762b8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 4546295495866388853, guid: 5d559ca7929cf304db14cf993c9762b8, type: 3}
       propertyPath: m_FontData.m_Alignment
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6632561484683410896, guid: 5d559ca7929cf304db14cf993c9762b8, type: 3}
       propertyPath: m_Pivot.x
