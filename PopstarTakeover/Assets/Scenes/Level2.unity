@@ -437,10 +437,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5988484772701355309, guid: f00db238054d33344931b5b9d01d71c7, type: 3}
-      propertyPath: calibrationLength
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5988484773172094912, guid: f00db238054d33344931b5b9d01d71c7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.01

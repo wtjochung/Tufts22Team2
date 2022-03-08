@@ -15,6 +15,7 @@ public class Calibration : MonoBehaviour
     bool start;
     
     bool startEnvironVolume;
+    bool enviroStarted = false;
 
     float[] enviroVolumeList;
     float enviroVolumeAvg;
@@ -33,6 +34,7 @@ public class Calibration : MonoBehaviour
         //spawner = new shockwave_spawner();
         
         anim = GetComponent<Animator>();
+        enviroStarted = false;
         /*
         count = 0;
         start = false;
@@ -61,10 +63,12 @@ public class Calibration : MonoBehaviour
 
         voiceVolumeList = new float[1024];
         enviroVolumeList = new float[1024];
+        /*
         for (int i = 0; i < 1024; i++)
         {
             enviroVolumeList[i] = -210;
         }
+        */
     }
 
     // Update is called once per frame
@@ -78,7 +82,12 @@ public class Calibration : MonoBehaviour
             Debug.Log("calibration start");
         } else if (startEnvironVolume)
         {
-            startCalibTimeEnv = Time.unscaledTime;
+         //   if (enviroStarted == false)
+        //   {
+              
+                enviroStarted = true;
+          //  }
+          
             startListeningEnviro();
         }
        
@@ -92,7 +101,7 @@ public class Calibration : MonoBehaviour
         Debug.Log("start time: " + startCalibTimeVoice);
         if (timeLength < calibrationLength && count < 1024)
         {
-            timeLength = Time.unscaledTime - startCalibTimeVoice;
+          //  timeLength = Time.unscaledTime - startCalibTimeVoice;
             float currVolume = MicInput.MicLoudnessinDecibels;
             Debug.Log("voice length :" + timeLength);
           
@@ -107,6 +116,7 @@ public class Calibration : MonoBehaviour
             Debug.Log("finished calibrating voice");
             start = false;
             startEnvironVolume = true;
+            startCalibTimeEnv = Time.unscaledTime;
 
             voiceVolumeAvg = getAverage(voiceVolumeList);
             count = 0;
@@ -125,20 +135,24 @@ public class Calibration : MonoBehaviour
         Debug.Log("at listening enviro");
     
     count++;
+        Debug.Log("count in enviro: " + count);
         float currDuration = Time.unscaledTime - startCalibTimeEnv;
-        if (count > 10 &&  count < 1024)
+        Debug.Log("env start time: " + Time.unscaledTime);
+        Debug.Log("start time env " + startCalibTimeEnv);
+        Debug.Log("curr duration en: " + currDuration);
+
+        if (count < 1024 && currDuration < calibrationLength)
         {
             float currVolume = MicInput.MicLoudnessinDecibels;
-            while (currDuration < calibrationLength)
-            {
-                currDuration = Time.unscaledTime - startCalibTimeEnv;
+          
+                //currDuration = Time.unscaledTime - startCalibTimeEnv;
                 enviroVolumeList[count] = averageMicLevel(currVolume);
                 //count++;
                 Debug.Log("calibrating enviro: " + count);
-            }
+            
         }
            
-        else if (count >= 1023)
+        else 
         {
             startEnvironVolume = false;
             enviroVolumeAvg = getAverage(enviroVolumeList);
@@ -146,6 +160,7 @@ public class Calibration : MonoBehaviour
             GameHandler.updateBaselineVolume(enviroVolumeAvg, voiceVolumeAvg);
             anim.SetBool("calibration_start", false);
             count = 0;
+            enviroStarted = false;
         }
 #endif
     }
@@ -199,7 +214,9 @@ public class Calibration : MonoBehaviour
         float average = 0;
         foreach (float volume in volumeBuffer)
         {
+           if (volume > -200)
             average += volume;
+
         }
         average /= volumeBuffer.Count;
 

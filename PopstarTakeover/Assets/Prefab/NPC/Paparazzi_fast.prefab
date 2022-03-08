@@ -97,8 +97,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7049131438391477274, guid: bf58dba912c05c244b9f3997036c204c, type: 3}
-  m_Color: {r: 0.033215165, g: 1, b: 0, a: 0.7254902}
+  m_Sprite: {fileID: 6181532572173206794, guid: 0d203793ba6289b4597658f2d398d352, type: 3}
+  m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -218,6 +218,7 @@ MonoBehaviour:
   destroyDistance: 30
   goLeft: 1
   disableLeftMovement: 0
+  animator: {fileID: 0}
 --- !u!222 &704529449957519423
 CanvasRenderer:
   m_ObjectHideFlags: 0

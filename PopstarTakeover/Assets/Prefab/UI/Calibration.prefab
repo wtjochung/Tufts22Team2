@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cef5d2e6c56084dbbab23c980e8b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  calibrationLength: 500
+  calibrationLength: 3
 --- !u!1 &5988484774003382981
 GameObject:
   m_ObjectHideFlags: 0

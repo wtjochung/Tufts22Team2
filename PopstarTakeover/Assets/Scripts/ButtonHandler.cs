@@ -14,6 +14,7 @@ public class ButtonHandler : MonoBehaviour
 
     public void changeScene(string sceneName)
     {
+        Time.timeScale = 1f;
         if (sceneName != "") SceneManager.LoadScene(sceneName);
     }
 
